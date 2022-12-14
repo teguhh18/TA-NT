@@ -22,4 +22,35 @@ class Mhunian extends CI_Model
         $query = $this->db->get()->result();
         return $query;
     }
+
+    function save_data($nama_hunian,$jenis_hunian,$deskripsi_hunian,$status_hunian,$harga_hunian,$gambar)
+    {
+        $this->db->select("nama_hunian");
+        $this->db->from("hunian");
+        $this->db->where("nama_hunian = nama_hunian");
+        // Ekseskusi Query
+        $query = $this->db->get()->result();
+        // Jika npm ditemukan
+        if(count($query) == 0)
+        {
+            // isi untuk nilai masing masing field
+            $data = array(
+                "nama_hunian" => $nama_hunian,
+                "jenis_hunian" => $jenis_hunian,
+                "deskripsi_hunian" => $deskripsi_hunian,
+                "status_hunian" => $status_hunian,
+                "harga_hunian" => $harga_hunian,
+                "gambar" => $gambar,
+            );
+            // Simpan Data
+            $this->db->insert("hunian",$data);
+            $hasil = 0;
+        }
+        // Jika npm tidak ditemukan
+        else
+        {
+            $hasil = 1;
+        }    
+        return $hasil;
+    }
 }
