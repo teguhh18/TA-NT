@@ -15,9 +15,11 @@ class Hunian extends Server{
     // Buat Fungsi "GET"
     function service_get()
     {
-        
+        // Mengambil parameter token(nomor_hunian)
+        $token = $this->get("nomor_hunian");
+
         // Panggil Fungsi "get_data()"
-        $hasil = $this->mdl->get_data();
+        $hasil = $this->mdl->get_data(base64_encode($token));
 
         $this->response(array("hunian" => $hasil), 200);
     }
@@ -25,19 +27,21 @@ class Hunian extends Server{
         // Buat Fungsi "POST"
         function service_post()
         {
-            
+
             // Ambli parameter data yang akan diisi
             $data = array(
                 "nama_hunian" => $this->post("nama_hunian"),
+                "nomor_hunian" => $this->post("nomor_hunian"),
                 "jenis_hunian" => $this->post("jenis_hunian"),
                 "deskripsi_hunian" => $this->post("deskripsi_hunian"),
                 "status_hunian" => $this->post("status_hunian"),
                 "harga_hunian" => $this->post("harga_hunian"),
-                "gambar" => $this->post("gambar")
-                
+                "gambar" => $this->post("gambar"),
+                "token" => base64_encode($this->post("nomor_hunian"))
             );
+
             // panggil method save_data()
-            $hasil = $this->mdl->save_data($data["nama_hunian"],$data["jenis_hunian"],$data["deskripsi_hunian"],$data["status_hunian"],$data["harga_hunian"],$data["gambar"]);
+            $hasil = $this->mdl->save_data($data["nama_hunian"],$data["nomor_hunian"],$data["jenis_hunian"],$data["deskripsi_hunian"],$data["status_hunian"],$data["harga_hunian"],$data["gambar"],$data["token"]);
             // Jika Hasil = 0
             if($hasil == 0)
             {
@@ -49,11 +53,12 @@ class Hunian extends Server{
                 $this->response(array("status" => "Data Hunian Gagal Disimpan"), 200);
             }
         }
+        
         // Buat Fungsi "DELETE"
     function service_delete()
     {
-    // ambil parameter token("hunian")
-    $token = $this->delete("hunian");
+    // ambil parameter token("nomor_hunian")
+    $token = $this->delete("nomor_hunian");
     // Panggil fungsi "delete_data"
     $hasil = $this->mdl->delete_data (base64_encode($token));
     // jika proses delete berhasil

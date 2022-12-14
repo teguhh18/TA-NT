@@ -6,10 +6,11 @@ class Mhunian extends CI_Model
 {
 
     // Buat Method untuk tampil data
-    function get_data()
+    function get_data($token)
     {
         $this->db->select("id_hunian AS id,
         nama_hunian AS nama,
+        nomor_hunian AS nomor_hunian,
         jenis_hunian AS jenis,
         deskripsi_hunian AS deskripsi,
         status_hunian AS status,
@@ -17,67 +18,78 @@ class Mhunian extends CI_Model
         gambar AS gambar
         ");
         $this->db->from("hunian");
-        $this->db->order_by("id_hunian", "ASC");
+
+        // Jika token(nomor_hunian) ada
+        if(!empty($token))
+        {
+            $this->db->where("TO_BASE64(nomor_hunian) = '$token' OR TO_BASE64(nama_hunian) = '$token'");
+        }
+
+        $this->db->order_by("nomor_hunian", "ASC");
 
         $query = $this->db->get()->result();
         return $query;
     }
 
-    function save_data($nama_hunian,$jenis_hunian,$deskripsi_hunian,$status_hunian,$harga_hunian,$gambar)
+    function save_data($nama_hunian,$nomor_hunian,$jenis_hunian,$deskripsi_hunian,$status_hunian,$harga_hunian,$gambar,$token)
     {
-        $this->db->select("nama_hunian");
+        $this->db->select("nomor_hunian");
         $this->db->from("hunian");
-        $this->db->where("nama_hunian = nama_hunian");
+        $this->db->where("TO_BASE64(nomor_hunian) = '$token'");
         // Ekseskusi Query
         $query = $this->db->get()->result();
-        // Jika npm ditemukan
+        // Jika nomor_hunian sudah ada
         if(count($query) == 0)
         {
             // isi untuk nilai masing masing field
             $data = array(
                 "nama_hunian" => $nama_hunian,
+                "nomor_hunian" => $nomor_hunian,
                 "jenis_hunian" => $jenis_hunian,
                 "deskripsi_hunian" => $deskripsi_hunian,
                 "status_hunian" => $status_hunian,
                 "harga_hunian" => $harga_hunian,
                 "gambar" => $gambar,
             );
-            // Simpan Data
+            // Simpan Data ke table Hunian
             $this->db->insert("hunian",$data);
+            // beri nilai hasil=0
             $hasil = 0;
         }
         // Jika npm tidak ditemukan
         else
         {
+            // beri nilai hasil=1
             $hasil = 1;
         }    
         return $hasil;
     }
+
     // Membuat fungsi hapus data
 function delete_data($token)
 {
-    // Cek apakah "id_hunian" ada atau tidak
-    $this->db->select("id_hunian");
+    // Cek apakah "nomor_hunian" ada atau tidak
+    $this->db->select("nomor_hunian");
     $this->db->from("hunian");
-    $this->db->where("TO_BASE64(id_hunian) = '$token'");
+    $this->db->where("TO_BASE64(nomor_hunian) = '$token'");
     // Ekseskusi Query
     $query = $this->db->get()->result();
-    // Jika id_hunian ditemukan
+    // Jika nomor_hunian ditemukan
     if(count($query) == 1)
     {
         // Hapus data mahasiswa
-        $this->db->where("TO_BASE64(id_hunian) = '$token'");
+        $this->db->where("TO_BASE64(nomor_hunian) = '$token'");
         $this->db->delete("hunian");
         // kirim nilai hasil 1
         $hasil = 1;
     }
-    // Jika id_hunian tidak ditemukan
+    // Jika nomor_hunian tidak ditemukan
     else
     {
         // kirim nilai 0
         $hasil = 0;
     }
-    // Kirim varibel hasil ke "Controller" mahasiswa
+    // Kirim varibel hasil ke "Controller" Hunian
     return $hasil;
 }
 }
