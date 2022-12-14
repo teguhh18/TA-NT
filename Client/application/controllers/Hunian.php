@@ -5,7 +5,7 @@ class Hunian extends CI_Controller {
    
     public function index()
 	{
-		$data["tampil"] = json_decode($this->client->simple_get(APIHUNIAN));
+		$data['tampil'] = json_decode($this->client->simple_get(APIHUNIAN));
 		$this->load->view('vw_hunian', $data);
 
 		// foreach($data["tampil"] -> mahasiswa as $result){

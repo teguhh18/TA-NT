@@ -8,7 +8,7 @@ class Hunian extends Server{
     public function __construct()
         {
                 parent::__construct();
-                // Panggil Model "Mmahasiswa"
+                // Panggil Model "Mhunian"
         $this->load->model("Mhunian", "mdl", TRUE);
         }
 
