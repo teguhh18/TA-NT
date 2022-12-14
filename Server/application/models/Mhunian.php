@@ -53,4 +53,31 @@ class Mhunian extends CI_Model
         }    
         return $hasil;
     }
+    // Membuat fungsi hapus data
+function delete_data($token)
+{
+    // Cek apakah "id_hunian" ada atau tidak
+    $this->db->select("id_hunian");
+    $this->db->from("hunian");
+    $this->db->where("TO_BASE64(id_hunian) = '$token'");
+    // Ekseskusi Query
+    $query = $this->db->get()->result();
+    // Jika id_hunian ditemukan
+    if(count($query) == 1)
+    {
+        // Hapus data mahasiswa
+        $this->db->where("TO_BASE64(id_hunian) = '$token'");
+        $this->db->delete("hunian");
+        // kirim nilai hasil 1
+        $hasil = 1;
+    }
+    // Jika id_hunian tidak ditemukan
+    else
+    {
+        // kirim nilai 0
+        $hasil = 0;
+    }
+    // Kirim varibel hasil ke "Controller" mahasiswa
+    return $hasil;
+}
 }
