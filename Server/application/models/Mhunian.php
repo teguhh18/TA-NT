@@ -31,6 +31,18 @@ class Mhunian extends CI_Model
         return $query;
     }
 
+    function detail_hunian($id_hunian)
+    {
+    $hasil = $this->db->where('id_hunian', $id_hunian)->get('hunian');
+
+    if($hasil->num_rows() > 0){
+      return $hasil->result();
+    }
+    else{
+      return false;
+    }
+    }
+
     function save_data($nama_hunian,$nomor_hunian,$jenis_hunian,$deskripsi_hunian,$status_hunian,$harga_hunian,$gambar,$token)
     {
         $this->db->select("nomor_hunian");
@@ -92,4 +104,7 @@ function delete_data($token)
     // Kirim varibel hasil ke "Controller" Hunian
     return $hasil;
 }
+
+
+
 }

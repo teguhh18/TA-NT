@@ -72,5 +72,11 @@ class Hunian extends Server{
 
     }
 
+    function service_detail()
+    {
+        $hasil = $this->mdl->detail_hunian();
+        $this->response(array("detail" => $hasil), 200);
+    }
+
     
 }
