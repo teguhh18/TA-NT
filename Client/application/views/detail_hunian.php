@@ -21,25 +21,25 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">All Products</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                                <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                            </ul>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a>
                         </li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Kamar Kost</a>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="#!">Penyewaan</a>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="#!">Tentang</a>
+                        </li>
+                        
                     </ul>
-                    <form class="d-flex">
+                    <!-- <form class="d-flex">
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                        f    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                         </button>
-                    </form>
+                    </form> -->
                 </div>
             </div>
         </nav>
@@ -48,38 +48,44 @@
         <div class="container">
   <div style="height: 150px;"></div>
 
+  <?php 
+            
+            $no = 1;
+            foreach (   $tampil ->  hunian as $detail    ) 
+            {
+            ?>
   <div class="card">
     <div class="card-body">
     
       <div class="row">
         <div class="">
-          <img width="100%" src="<?= $dt->gambar; ?>" alt="">
+          <img width="100%" src="<?= $detail->gambar; ?>" alt="">
         </div>
         <div class="table" style="margin-top: 10px;">
           <table class="table">
             <tr>
               <th>Nama Kamar</th>
-              <td><?= $dt->nama_hunian; ?></td>
+              <td><?= $detail->nama_hunian; ?></td>
             </tr>
             <tr>
               <th>No Kamar</th>
-              <td><?= $dt->nomor_hunian; ?></td>
+              <td><?= $detail->nomor_hunian; ?></td>
             </tr>
 
             <tr>
               <th>Jenis</th>
-              <td><?= $dt->jenis_hunian; ?></td>
+              <td><?= $detail->jenis_hunian; ?></td>
             </tr>
 
             <tr>
               <th>Fasilitas</th>
-              <td><?= $dt->deskripsi_hunian; ?></td>
+              <td><?= $detail->deskripsi_hunian; ?></td>
             </tr>
             
             <tr>
               <th>Status</th>
               <td>
-                <?php if($dt->status_hunian == '1'){
+                <?php if($detail->status_hunian == '1'){
                   echo "Tersedia";
                 }
                 else{
@@ -91,14 +97,14 @@
 
             <tr>
               <th>Harga</th>
-              <td><?= $dt->harga_hunian; ?></td>
+              <td><?= $detail->harga_hunian; ?></td>
             </tr>
 
             <tr>
             
               <td>
               <?php
-                if($dt->status == "0"){ ?>
+                if($detail->status == "0"){ ?>
                   <span class="btn btn-danger">Telah Disewa</span>
                 <?php }
                 else{
@@ -115,6 +121,11 @@
 
     </div>
   </div>
+
+  <?php
+            $no++; 
+            }
+        ?> 
 
 </div>
         <!-- Footer-->

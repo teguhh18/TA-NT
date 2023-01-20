@@ -84,6 +84,10 @@
                     <button class="btn btn-warning" id="btn_detail" title="Detail Kamar" onclick="return gotoDetail('<?php echo $result->nomor_hunian; ?>')">
                     Detail
                     </button>
+
+                    <!-- <button class="btn btn-warning" id="btn_detail" title="Detail Kamar" href="<?= base_url('Hunian/index/'.$result->nomor_hunian) ?>">
+                    Detail -->
+                    </button>
                 </div>
             </div>
         </div>
@@ -103,6 +107,12 @@
         <!-- Core theme JS-->
         <script src="ext/scripts.js"></script>
         <script>
+            // fungsi untuk ke halaman detail hunian
+            // function gotoDetail(nomor_hunian)
+            // {
+            //     location.href='<?php echo site_url("Hunian/detailHunian")?>'+'?nomor_hunian='+nomor_hunian
+            // }
+
             // fungsi untuk ke halaman detail hunian
             function gotoDetail(nomor_hunian)
             {
