@@ -23,8 +23,8 @@ class Hunian extends CI_Controller {
 		$tampil = json_decode($this->client->simple_get(APIHUNIAN, array("nomor_hunian" => $token)));
 
 		if ($tampil->result == 0) {
-			// echo $tampil->error;
-			echo("ini error");
+			echo $tampil->error;
+			// echo("ini error");
 		} else {
 
 			foreach ($tampil->hunian as $result) {

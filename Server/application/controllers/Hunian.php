@@ -24,9 +24,29 @@ class Hunian extends Server{
         $this->response(array("hunian" => $hasil), 200);
     }
 
+
         // Buat Fungsi "POST"
         function service_post()
         {
+
+            $file = $_FILES['gambar'];
+
+            $path = "uploads/hunian";
+            $nmfile = "".time();
+
+            if(!empty($file['name'])) {
+                $config['upload_path'] = './'.$path;
+                $config['allowed_types'] = "jpg|jpeg|png";
+                $config['filename'] = $nmfile;
+                $config['max_size'] = 2048;
+                $this->upload->initialize($config);
+
+                if($this->upload->do_upload('gambar')) {
+                    // Untuk Mendapatkan Gambar Yang di upload
+                    $uploadData = $this->upload->data();
+                    // $path_file = './'.$path.$uploadData['file_name'];
+                }
+            }
 
             // Ambli parameter data yang akan diisi
             $data = array(
@@ -36,7 +56,7 @@ class Hunian extends Server{
                 "deskripsi_hunian" => $this->post("deskripsi_hunian"),
                 "status_hunian" => $this->post("status_hunian"),
                 "harga_hunian" => $this->post("harga_hunian"),
-                "gambar" => $this->post("gambar"),
+                "gambar" => $uploadData['file_name'],
                 "token" => base64_encode($this->post("nomor_hunian"))
             );
 
@@ -54,6 +74,7 @@ class Hunian extends Server{
             }
         }
         
+
         // Buat Fungsi "DELETE"
     function service_delete()
     {
