@@ -8,6 +8,13 @@ class Mhunian extends CI_Model
     // Buat Method untuk tampil data
     function get_data($token)
     {
+        // Mendapatkan nama gambar
+        // $nameImg = $this->db->select("gambar");
+        // $this->db->from("hunian");
+        // $image_path = $nameImg['name'];
+        
+        
+
         $this->db->select("id_hunian AS id,
         nama_hunian AS nama,
         nomor_hunian AS nomor_hunian,

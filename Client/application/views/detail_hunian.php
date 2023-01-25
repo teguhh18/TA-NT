@@ -108,7 +108,7 @@
                   <span class="btn btn-danger">Telah Disewa</span>
                 <?php }
                 else{
-                  echo anchor('customer/rental/tambah_rental/'. $dt->id_kamar, '<button class="btn btn-success">Sewa</button>');
+                  echo anchor('customer/rental/tambah_rental/'. $detail->nomor_kamar, '<button class="btn btn-success">Sewa</button>');
                 }
                 ?>
               </td>

@@ -17,6 +17,7 @@ class Hunian extends Server{
     {
         // Mengambil parameter token(nomor_hunian)
         $token = $this->get("nomor_hunian");
+        
 
         // Panggil Fungsi "get_data()"
         $hasil = $this->mdl->get_data(base64_encode($token));

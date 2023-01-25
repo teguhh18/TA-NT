@@ -62,7 +62,7 @@
             {
             ?>
 
-        <div class="col-lg-4 col-md-6 mb-4">
+        <div class="col-lg-12 col-md-6 mb-4">
             <div class="card h-100">
                 <a href="#"><img class="card-img-top" src="<?php echo $result->gambar; ?>" alt=""></a>
                 <div class="card-body">
@@ -70,7 +70,9 @@
                         <a href="#"><?php echo $result->nama;     ?></a>
                     </h4>
                     <h5>Kamar No : <?php echo $result->nomor_hunian; ?></h5>
+                    <p class="card-text">Tipe Kamar : <?php echo $result->jenis; ?></p>
                     <p class="card-text">Fasilitas : <?php echo $result->deskripsi; ?></p>
+                    <p class="card-text">Harga : <?php echo $result->harga; ?></p>
                 </div>
                 <div class="card-footer">
                     <!-- Buat tombol sewa kamar berdasarkan ketersediaan kamar-->
@@ -81,9 +83,9 @@
                         echo anchor('ini fungsi untuk tambah sewa'.$result->id, '<button class="btn btn-success">Sewa</button>');
                     }
                     ?>
-                    <button class="btn btn-warning" id="btn_detail" title="Detail Kamar" onclick="return gotoDetail('<?php echo $result->nomor_hunian; ?>')">
+                    <!-- <button class="btn btn-warning" id="btn_detail" title="Detail Kamar" onclick="return gotoDetail('<?php echo $result->nomor_hunian; ?>')">
                     Detail
-                    </button>
+                    </button> -->
 
                     <!-- <button class="btn btn-warning" id="btn_detail" title="Detail Kamar" href="<?= base_url('Hunian/index/'.$result->nomor_hunian) ?>">
                     Detail -->
@@ -114,9 +116,9 @@
             // }
 
             // fungsi untuk ke halaman detail hunian
-            function gotoDetail(nomor_hunian)
+            function gotoDetail($nomor_hunian)
             {
-                location.href='<?php echo site_url("Hunian/detailHunian")?>'+'/'+nomor_hunian
+                location.href='<?php echo site_url("Hunian/detailHunian")?>'
             }
         </script>
     </body>
