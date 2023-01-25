@@ -96,7 +96,7 @@ function delete_data($token)
     // Jika nomor_hunian ditemukan
     if(count($query) == 1)
     {
-        // Hapus data mahasiswa
+        // Hapus data hunian
         $this->db->where("TO_BASE64(nomor_hunian) = '$token'");
         $this->db->delete("hunian");
         // kirim nilai hasil 1

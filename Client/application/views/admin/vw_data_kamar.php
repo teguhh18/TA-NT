@@ -48,7 +48,7 @@
           </td>
           <td>
             <a href="<?= base_url('admin/data_kamar/detail_kamar/'). $result->id; ?>" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a>
-            <a onclick="return confirm('Yakin hapus?')" href="<?= base_url('admin/data_kamar/delete_kamar/'). $result->id; ?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+            <a  onclick="return gotoDelete('<?php echo $result->nomor_hunian; ?>')" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
             <a href="<?= base_url('admin/data_kamar/update_kamar/'). $result->id; ?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
           </td>
         </tr>
@@ -59,7 +59,57 @@
       </tbody>
     </table>
 
+    <script>
 
+  
+        // buat fungsi untuk hapus data
+        function gotoDelete(nomor_hunian)
+        {
+            if(confirm("Data Kamar No "+nomor_hunian+" Ingin Dihapus ?") === true)
+            {                
+
+                // panggil fungsi setDelete
+                setDelete(nomor_hunian);                
+            }
+        }
+
+        function setDelete(nomor_hunian)
+        {
+            // buat variabel/konstanta data
+            const data = {
+                "nomornya" : nomor_hunian,                
+            }
+
+            // kirim data async dengan fetch
+            fetch('<?php echo base_url('admin/Data_Kamar/setDelete'); ?>',
+            {
+                method : "POST",
+                headers: {
+                    "Content-Type" : "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+
+            .then((response)=>
+            {
+                return response.json()
+            })
+
+            .then(function(data)
+            {
+                // jika nilai "err" = 0
+                // if(data.err === 0)
+                    // alert("Data Berhasil Dihapus")
+                // jika nilai "err" = 1
+                // else
+                    // alert("Data Gagal Dihapus !")
+                alert(data.statusnya);
+                //  panggil fungsi setRefresh
+                // setRefresh();
+            })
+        }
+    </script>
 
   </section>
 </div>
+
