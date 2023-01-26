@@ -82,7 +82,7 @@ class Hunian extends Server{
     // ambil parameter token("nomor_hunian")
     $token = $this->delete("nomor_hunian");
     // Panggil fungsi "delete_data"
-    $hasil = $this->mdl->delete_data (base64_encode($token));
+    $hasil = $this->mdl->delete_data(base64_encode($token));
     // jika proses delete berhasil
     if ($hasil == 1) {
         $this->response(array("status" => "Data Hunian Berhasil Dihapus"), 200);
