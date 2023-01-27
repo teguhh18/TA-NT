@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
+class Tentang extends CI_Controller {
    
     public function index()
 	{
@@ -9,9 +9,7 @@ class Dashboard extends CI_Controller {
 		
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('vw_dashboard');
+        $this->load->view('vw_tentang');
         $this->load->view('templates_admin/footer');
 	}
-
-    
 }
