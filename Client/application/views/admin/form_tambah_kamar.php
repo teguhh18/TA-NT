@@ -229,12 +229,12 @@
             let form = new FormData();
 
             // isi/tambah nilai untuk form
-            form.append("nama",nama);
-            form.append("nomor_hunian",nomor);
-            form.append("deskripsi",deskripsi);
-            form.append("status",status);
-            form.append("harga",harga);
-            form.append("gambar",gambar);
+            form.append("namanya",nama);
+            form.append("nomornya",nomor);
+            form.append("deskripsinya",deskripsi);
+            form.append("statusnya",status);
+            form.append("harganya",harga);
+            form.append("gambarnya",gambar);
 
             // proses kirim data ke controller
             fetch('<?php echo base_url("admin/Data_Kamar/tambah_kamar_aksi"); ?>',{
