@@ -1,48 +1,23 @@
-<footer class="footer fixed-bottom">
-      <div class="container">
-        <div class="row">
-          <!-- <div class="col-lg-12">
-            <ul class="social-icons">
-              <li><a href="#">Facebook</a></li>
-              <li><a href="#">Twitter</a></li>
-              <li><a href="#">Behance</a></li>
-              <li><a href="#">Linkedin</a></li>
-            </ul>
-          </div> -->
-          <div class="col-lg-11">
-            <div class="copyright-text">
-              <p>
-                Copyright © 2022 Kost Tegar
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Kost Tegar 2022</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="ext/scripts.js"></script>
+        <script>
+            // fungsi untuk ke halaman detail hunian
+            // function gotoDetail(nomor_hunian)
+            // {
+            //     location.href='<?php echo site_url("Hunian/detailHunian")?>'+'?nomor_hunian='+nomor_hunian
+            // }
 
-    
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="<?= base_url('assets/assets_shop') ?>/vendor/jquery/jquery.min.js"></script>
-    <script src="<?= base_url('assets/assets_shop') ?>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Additional Scripts -->
-    <script src="<?= base_url('assets/assets_shop') ?>/js/custom.js"></script>
-    <script src="<?= base_url('assets/assets_shop') ?>/js/owl.js"></script>
-    <script src="<?= base_url('assets/assets_shop') ?>/js/slick.js"></script>
-    <script src="<?= base_url('assets/assets_shop') ?>/js/isotope.js"></script>
-    <script src="<?= base_url('assets/assets_shop') ?>/js/accordions.js"></script>
-
-    <script language = "text/Javascript"> 
-      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
-      function clearField(t){                   //declaring the array outside of the
-      if(! cleared[t.id]){                      // function makes it static and global
-          cleared[t.id] = 1;  // you could use true and false, but that's more typing
-          t.value='';         // with more chance of typos
-          t.style.color='#fff';
-          }
-      }
-    </script>
-
-  </body>
+            // fungsi untuk ke halaman detail hunian
+            function gotoDetail($nomor_hunian)
+            {
+                location.href='<?php echo site_url("Hunian/detailHunian")?>'
+            }
+        </script>
+    </body>
 </html>
