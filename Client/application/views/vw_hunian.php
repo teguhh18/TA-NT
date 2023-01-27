@@ -63,9 +63,10 @@
             {
             ?>
 
-        <div class="col-lg-12 col-md-6 mb-4">
+        <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="<?php echo $result->gambar; ?>" alt=""></a>
+                <!-- Gambar masih salah, seharusnya gambar diambil berdasarkan nama gambar -->
+                <a href="#"><img class="card-img-top" src="<?= base_url('assets/assets_shop') ?>/images/kamar5.jpg" alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
                         <a href="#"><?php echo $result->nama;     ?></a>

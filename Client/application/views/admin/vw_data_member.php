@@ -4,7 +4,9 @@
       <h1>Data Member</h1>
     </div>
     
-    <a href="<?= base_url('admin/Data_Member/tambah_member'); ?>" class="btn btn-primary mb-3">Tambah Data</a>
+    <a href="<?= base_url('admin/Data_Member/tambah_member'); ?>" class="btn btn-primary mb-3">Tambah Member</a>
+
+    <h5>Role = 1 (admin) Role = 0 (Customer)</h5>
     
 
     <table class="table table-hover table-striped table-bordered">
@@ -44,9 +46,9 @@
           <td><?= $result->role; ?></td>
           
           <td>
-            <a href="<?= base_url('admin/data_kamar/detail_kamar/'). $result->id; ?>" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a>
+           
             <a  onclick="return gotoDelete('<?php echo $result->ktp; ?>')" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-            <a href="<?= base_url('admin/data_kamar/update_kamar/'). $result->id; ?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+            <a href="<?= base_url('admin/data_member/update_member/'). $result->id; ?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
           </td>
         </tr>
         <?php
@@ -60,25 +62,25 @@
 
   
         // buat fungsi untuk hapus data
-        function gotoDelete(nomor_hunian)
+        function gotoDelete(ktp)
         {
-            if(confirm("Data Kamar No "+nomor_hunian+" Ingin Dihapus ?") === true)
+            if(confirm("Data Member No KTP "+ktp+" Ingin Dihapus ?") === true)
             {                
 
                 // panggil fungsi setDelete
-                setDelete(nomor_hunian);                
+                setDelete(ktp);                
             }
         }
 
-        function setDelete(nomor_hunian)
+        function setDelete(ktp)
         {
             // buat variabel/konstanta data
             const data = {
-                "nomornya" : nomor_hunian,                
+                "ktpnya" : ktp,                
             }
 
             // kirim data async dengan fetch
-            fetch('<?php echo base_url('admin/Data_Kamar/setDelete'); ?>',
+            fetch('<?php echo base_url('admin/Data_Member/deleteMember'); ?>',
             {
                 method : "POST",
                 headers: {

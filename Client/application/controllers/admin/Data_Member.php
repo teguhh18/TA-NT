@@ -13,14 +13,14 @@ class Data_Member extends CI_Controller {
         $this->load->view('templates_admin/footer');
 	}
 
-    function setDelete()
+    function deleteMember()
     {
         // buat variabel json
 		$json = file_get_contents("php://input");
 		$hasil = json_decode($json);
 
 
-		$delete = json_decode($this->client->simple_delete(APIHUNIAN, array("nomor_hunian" => $hasil->nomornya)));
+		$delete = json_decode($this->client->simple_delete(APIMEMBER, array("no_ktp" => $hasil->ktpnya)));
 
 		if ($delete->result == 0) {
 			echo json_encode(array("statusnya" => $delete->error));
@@ -29,52 +29,39 @@ class Data_Member extends CI_Controller {
 		}
     }
 
-    public function tambah_kamar()
+    public function tambah_member()
     {
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('admin/form_tambah_kamar');
+        $this->load->view('admin/form_tambah_member');
         $this->load->view('templates_admin/footer');
     }
 
-    public function tambah_kamar_aksi()
+    public function tambah_member_aksi()
     {
-        $gambar    = $_FILES['gambar']['name'];
-  
-        if($gambar=''){}
-        else{
-          $config['upload_path'] = './assets/upload';
-          $config['allowed_types'] = 'jpg|jpeg|png|tiff';
-  
-          $this->load->library('upload', $config);
-          if(!$this->upload->do_upload('gambar')){
-            echo "Gambar Kamar gagal diupload";
-          }
-          else{
-            $gambar = $this->upload->data('file_name');
-          }
-        }
-
+        
         // baca nilai dari fetch
 		$data = array(
 			"nama" => $this->input->post("nama"),
-			"nomor" => $this->input->post("nomor"),
-			"deskripsi" => $this->input->post("deskripsi"),
-			"status" => $this->input->post("status"),
-			"harga" => $this->input->post("harga"),
-			"gambar" => $this->input->post("gambar"),
-			"token" => $this->input->post("nomor"),
+			"email" => $this->input->post("email"),
+			"alamat" => $this->input->post("alamat"),
+			"gender" => $this->input->post("gender"),
+			"telepon" => $this->input->post("telepon"),
+			"ktp" => $this->input->post("ktp"),
+			"pass" => $this->input->post("pass"),
+			"role" => $this->input->post("role"),
+			"token" => $this->input->post("ktp"),
 			
 		);
 
-		$save = json_decode($this->client->simple_post(APIHUNIAN, $data));
+		$save = json_decode($this->client->simple_post(APIMEMBER, $data));
 
 		if ($save->result == 0) {
 			echo json_encode(array("statusnya" => $save->error));
-            redirect('admin/data_kamar/tambah_kamar');
+            redirect('admin/data_member/tambah_member');
 		} else {
 			echo json_encode(array("statusnya" => $save->status));
-            redirect('admin/data_kamar');
+            redirect('admin/data_member');
 		}
      
     

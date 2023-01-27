@@ -39,30 +39,30 @@ class Data_Kamar extends CI_Controller {
 
     public function tambah_kamar_aksi()
     {
-        $gambar    = $_FILES['gambar']['name'];
+        // $gambar    = $_FILES['gambar']['name'];
   
-        if($gambar=''){}
-        else{
-          $config['upload_path'] = './assets/upload';
-          $config['allowed_types'] = 'jpg|jpeg|png|tiff';
+        // if($gambar=''){}
+        // else{
+        //   $config['upload_path'] = './assets/upload';
+        //   $config['allowed_types'] = 'jpg|jpeg|png|tiff';
   
-          $this->load->library('upload', $config);
-          if(!$this->upload->do_upload('gambar')){
-            echo "Gambar Kamar gagal diupload";
-          }
-          else{
-            $gambar = $this->upload->data('file_name');
-          }
-        }
+        //   $this->load->library('upload', $config);
+        //   if(!$this->upload->do_upload('gambar')){
+        //     echo "Gambar Kamar gagal diupload";
+        //   }
+        //   else{
+        //     $gambar = $this->upload->data('file_name');
+        //   }
+        // }
 
         // baca nilai dari fetch
 		$data = array(
-			"nama" => $this->input->post("nama"),
-			"nomor" => $this->input->post("nomor"),
-			"deskripsi" => $this->input->post("deskripsi"),
-			"status" => $this->input->post("status"),
-			"harga" => $this->input->post("harga"),
-			"gambar" => $this->input->post("gambar"),
+			"nama" => $this->input->post("namanya"),
+			"nomor" => $this->input->post("nomornya"),
+			"deskripsi" => $this->input->post("deskripsinya"),
+			"status" => $this->input->post("statusnya"),
+			"harga" => $this->input->post("harganya"),
+			"gambar" => $this->input->post("gambarnya"),
 			"token" => $this->input->post("nomor"),
 			
 		);
@@ -71,12 +71,16 @@ class Data_Kamar extends CI_Controller {
 
 		if ($save->result == 0) {
 			echo json_encode(array("statusnya" => $save->error));
-            redirect('admin/data_kamar/tambah_kamar');
+
+        // Kembalikan ke form tambah kamar
+            // redirect('admin/data_kamar/tambah_kamar');
 		} else {
 			echo json_encode(array("statusnya" => $save->status));
+      // Arahkan ke vw_data kamar
             redirect('admin/data_kamar');
 		}
      
+    
     
 
 
