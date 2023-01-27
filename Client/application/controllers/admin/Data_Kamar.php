@@ -58,7 +58,7 @@ class Data_Kamar extends CI_Controller {
         // baca nilai dari fetch
 		$data = array(
 			"nama" => $this->input->post("nama"),
-			"nomor" => $this->input->post("nomor"),
+			"nomor" => $this->input->post("nomor_hunian"),
 			"deskripsi" => $this->input->post("deskripsi"),
 			"status" => $this->input->post("status"),
 			"harga" => $this->input->post("harga"),

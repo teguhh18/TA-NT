@@ -230,7 +230,7 @@
 
             // isi/tambah nilai untuk form
             form.append("nama",nama);
-            form.append("nomor",nomor);
+            form.append("nomor_hunian",nomor);
             form.append("deskripsi",deskripsi);
             form.append("status",status);
             form.append("harga",harga);
