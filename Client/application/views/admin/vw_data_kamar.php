@@ -4,7 +4,7 @@
       <h1>Data Kamar</h1>
     </div>
     
-    <a href="<?= base_url('admin/Data_amar/tambah_kamar'); ?>" class="btn btn-primary mb-3">Tambah Data</a>
+    <a href="<?= base_url('admin/Data_Kamar/tambah_kamar'); ?>" class="btn btn-primary mb-3">Tambah Data</a>
     
 
     <table class="table table-hover table-striped table-bordered">
