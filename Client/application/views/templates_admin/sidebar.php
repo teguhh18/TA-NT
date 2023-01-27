@@ -33,7 +33,7 @@
 
             <li><a class="nav-link" href="<?= base_url('admin/data_tipe'); ?>"><i class="fas fa-grip-horizontal"></i> <span>Data Tipe</span></a></li>
 
-            <li><a class="nav-link" href="<?= base_url('admin/data_customer'); ?>"><i class="fas fa-users"></i> <span>Data Customer</span></a></li>
+            <li><a class="nav-link" href="<?= base_url('admin/data_member'); ?>"><i class="fas fa-users"></i> <span>Data Member</span></a></li>
 
             <li><a class="nav-link" href="<?= base_url('admin/transaksi'); ?>"><i class="fas fa-random"></i> <span>Transaksi</span></a></li>
 

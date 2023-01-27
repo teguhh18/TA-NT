@@ -1,15 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Data_Kamar extends CI_Controller {
+class Data_Member extends CI_Controller {
    
     public function index()
 	{
-		$data['tampil'] = json_decode($this->client->simple_get(APIHUNIAN));
+		$data['tampil'] = json_decode($this->client->simple_get(APIMEMBER));
 		
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('admin/vw_data_kamar', $data);
+        $this->load->view('admin/vw_data_member', $data);
         $this->load->view('templates_admin/footer');
 	}
 
@@ -83,20 +83,4 @@ class Data_Kamar extends CI_Controller {
     }
 
 
-
-
-
-
-
-
-    public function _rules(){
-        // $this->form_validation->set_rules('kode_tipe', 'Tipe Kamar', 'required');
-        $this->form_validation->set_rules('nama_kamar', 'Nama Kamar', 'required');
-        $this->form_validation->set_rules('no', 'Nomor Kamar', 'required');
-        $this->form_validation->set_rules('jenis', 'Jenis Kamar', 'required');
-        $this->form_validation->set_rules('deskripsi_kamar', 'Deskripsi Kamar', 'required');
-        $this->form_validation->set_rules('status', 'Status Kamar', 'required');
-        $this->form_validation->set_rules('harga', 'Harga', 'required');
-       
-      }
 }

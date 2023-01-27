@@ -59,10 +59,17 @@
                 <input id="txt_harga" type="number" name="harga" class="form-control">
                 <div id="err_harga" class="text-small text-danger"></div>
               </div>
+
+              <div class="form-group">
+                <label id="lbl_gambar" for="txt_gambar">Nama File Gambar</label>
+                <input id="txt_gambar" type="text" name="harga" class="form-control">
+                <label for=""><b>Disesuaikan dengan nama file foto yang akan di upload. Ex : fotokamar.jpg</b></label>
+                <div id="err_gambar" class="text-small text-danger"></div>
+              </div>
               
               <div class="form-group">
-                <label id="lbl_gambar" for="file_gambar">Gambar</label>
-                <input id="file_gambar" type="file" name="gambar" class="form-control">
+                <label id="" for="">Gambar</label>
+                <input id="" type="file" name="gambar" class="form-control">
                 <label for="gambar"><b>Disarankan Upload Foto Tipe Landscape !!!</b></label>
               </div>
 
@@ -110,7 +117,7 @@
             let err_harga = document.getElementById("err_harga");
 
             let lbl_gambar = document.getElementById("lbl_gambar");
-            let file_gambar = document.getElementById("file_gambar");
+            let txt_gambar = document.getElementById("txt_gambar");
             let err_gambar = document.getElementById("err_gambar");
             
 
@@ -196,10 +203,10 @@
                                 
             ]
 
-            const gambar = (file_gambar.value === "") ?
+            const gambar = (txt_gambar.value === "") ?
             [
                 err_gambar.style.display = 'unset',
-                err_gambar.innerHTML = "Gambar Kamar Harus Diisi !",
+                err_gambar.innerHTML = "Nama Gambar Kamar Harus Diisi !",
                             
             ]
             :
@@ -213,7 +220,7 @@
             if(err_nama.innerHTML === "" && nomor[1] === "" && jenis[1] === "" && deskripsi[1] === "" && status[1] === "" && harga[1] === "" && gambar[1] === "")
             {
                 // panggil method setSave
-                setSave(txt_nama.value,txt_nomor.value,cbo_jenis.value,txt_deskripsi.value,cbo_status.value,txt_harga.value,file_gambar.value);
+                setSave(txt_nama.value,txt_nomor.value,cbo_jenis.value,txt_deskripsi.value,cbo_status.value,txt_harga.value,txt_gambar.value);
             }            
         });
 
