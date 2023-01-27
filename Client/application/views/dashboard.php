@@ -139,32 +139,6 @@
 </div>
 <!-- Banner Ends Here -->
 
-
-
-<section class="call-to-action">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="main-content">
-          <div class="row">
-            <div class="col-lg-8">
-              <span>Tentang Kost Tegar</span>
-              <p style="color: white;">Kost Tegar merupakan website kosan yang menyediakan banyak kamar yang memiliki fasilitas yang nyaman dan layak. Kost Tegar terletak di Jalan Cengkeh, Gedung Meneng, Rajabasa</p>
-            </div>
-            <div class="col-lg-4">
-              <div class="main-button">
-                <a href="#">Hubungi Kami</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
 <div style="height: 180px;"></div>
 
         <!-- Footer-->
@@ -173,20 +147,5 @@
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <!-- <script src="ext/scripts.js"></script>
-        <script>
-            // fungsi untuk ke halaman detail hunian
-            // function gotoDetail(nomor_hunian)
-            // {
-            //     location.href='<?php echo site_url("Hunian/detailHunian")?>'+'?nomor_hunian='+nomor_hunian
-            // }
-
-            // fungsi untuk ke halaman detail hunian
-            //function gotoDetail($nomor_hunian)
-            //{
-            //    location.href='<?php echo site_url("Hunian/detailHunian")?>'
-            //}
-        </script> -->
     </body>
 </html>
