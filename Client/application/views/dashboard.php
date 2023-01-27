@@ -46,7 +46,7 @@
                         <li class="nav-item"><a class="nav-link" href="#!">Penyewaan</a>
                         </li>
 
-                        <li class="nav-item"><a class="nav-link" href="#!">Tentang</a>
+                        <li class="nav-item"><a class="nav-link" href="http://localhost:8080/KOST-TEGAR/Client/Tentang">Tentang</a>
                         </li>
                         
                     </ul>

@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Daftar Hunian</title>
+        <title></title>
         <!-- Favicon-->
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -13,6 +13,12 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="<?php echo base_url("ext/style.css") ?>" rel="stylesheet" />
+
+            <!-- memanggil CSS Files -->
+        <link rel="stylesheet" href="<?= base_url('assets/assets_shop') ?>/css/fontawesome.css">
+        <link rel="stylesheet" href="<?= base_url('assets/assets_shop') ?>/css/style.css">
+        <link rel="stylesheet" href="<?= base_url('assets/assets_shop') ?>/css/owl.css">
+
     </head>
     <body>
         <!-- Navigation-->
@@ -30,7 +36,7 @@
                         <li class="nav-item"><a class="nav-link" href="#!">Penyewaan</a>
                         </li>
 
-                        <li class="nav-item"><a class="nav-link" href="#!">Tentang</a>
+                        <li class="nav-item"><a class="nav-link" href="<?= base_url('Tentang') ?>">Tentang</a>
                         </li>
                         
                     </ul>
@@ -44,6 +50,7 @@
                 </div>
             </div>
         </nav>
+
         <!-- Header-->
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
@@ -51,5 +58,5 @@
                     <h1 class="display-4 fw-bolder">KOST TEGAR</h1>
                     <p class="lead fw-normal text-white-50 mb-0">Sewa Kamar Dengan Harga Murah</p>
                 </div>
-            </div>
+            </div> 
         </header>

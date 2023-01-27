@@ -30,7 +30,7 @@
                         <li class="nav-item"><a class="nav-link" href="#!">Penyewaan</a>
                         </li>
 
-                        <li class="nav-item"><a class="nav-link" href="#!">Tentang</a>
+                        <li class="nav-item"><a class="nav-link" href="<?= base_url('Tentang') ?>">Tentang</a>
                         </li>
                         
                     </ul>
