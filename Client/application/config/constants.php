@@ -89,3 +89,4 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 define("API", "http://localhost:8080/KOST-TEGAR/Server");
 define("APIHUNIAN", API."/index.php/Hunian");
+define("APIMEMBER", API."/index.php/Member");
